@@ -1,7 +1,7 @@
 <script>
   import TodoItem from "./TodoItem.svelte";
 
-  let todos = [{ text: "I am for testing", checked: false }];
+  let todos = [];
   let todo = "";
 
   $: amount = todos.reduce((sum, todo) => (todo.done ? ++sum : sum), 0);
