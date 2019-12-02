@@ -1,16 +1,18 @@
 <script>
   import TodoItem from "./TodoItem.svelte";
+
   let todos = [{ text: "I am for testing", checked: false }];
   let todo = "";
 
   $: amount = todos.reduce((sum, todo) => (todo.done ? ++sum : sum), 0);
+
   function addTodo() {
-    // if (todo === "") return alert("please input a todo");
+    if (todo === "") return alert("please input a todo");
     const newTodo = {
       text: todo,
       done: false
     };
-    todos = [...todos, { text: "I am for testing", checked: false }];
+    todos = [...todos, newTodo];
     todo = "";
   }
 </script>
@@ -29,7 +31,7 @@
     max-width: 800px;
     height: 600px;
     background: aliceblue;
-    border: 3px solid #F2BB4D;
+    border: 3px solid #f2bb4d;
     border-radius: 5px;
   }
   .no-todos {
@@ -50,7 +52,7 @@
       {#each todos as todo}
         <TodoItem bind:todo />
       {:else}
-        <p class="no-todos">No todos )))):</p>
+        <p class="no-todos">Add a new todo!</p>
       {/each}
     </div>
     <div />

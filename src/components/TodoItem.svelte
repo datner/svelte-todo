@@ -1,6 +1,5 @@
 <script>
   export let todo;
-  $: console.log(todo);
 </script>
 
 <style>
